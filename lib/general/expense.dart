@@ -7,6 +7,6 @@ class Expense{
   final String your_emotion;
   final DateTime date;
 
-  Expense({this.id=0, this.expense_title='', this.type='spent', this.amount=0, this.your_emotion='', required this.date});
+  Expense({this.id=0, this.expense_title='', this.type='spent', this.amount=0, this.your_emotion='happy', required this.date});
 
 }
