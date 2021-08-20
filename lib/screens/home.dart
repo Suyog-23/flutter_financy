@@ -17,8 +17,8 @@ class HomeState extends State<Home>{
     Expense(id: 0, expense_title: 'Dominoz Pizza', type: 'spent', amount: 540, your_emotion: 'neutral', date: DateTime.now()),
     Expense(id: 1, expense_title: 'Apple Stock', type: 'added', amount: 73.2, your_emotion: 'happy', date: DateTime.now()),
     Expense(id: 2, expense_title: 'Doge', type: 'crypto--', amount: 3200, your_emotion: 'sad', date: DateTime.now()),
-    Expense(id: 3, expense_title: 'Dominoz Pizza', type: 'spent', amount: 540, your_emotion: 'happy', date: DateTime.now()),
-    Expense(id: 4, expense_title: 'Dominoz Pizza', type: 'spent', amount: 540, your_emotion: 'happy', date: DateTime.now()),
+    Expense(id: 3, expense_title: 'Lays', type: 'spent', amount: 20, your_emotion: 'sad', date: DateTime.now()),
+    Expense(id: 4, expense_title: 'Ethereum', type: 'crypto++', amount: 4000, your_emotion: 'happy', date: DateTime.now()),
   ];
 
   @override 
