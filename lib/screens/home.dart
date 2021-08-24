@@ -39,7 +39,41 @@ class HomeState extends State<Home>{
               Column(
                 children: expense.map(
                   (ex) {
-                    return Container(width: double.infinity, child: Card(child: Text(ex.expense_title+" - "+ex.amount.toString()),));
+                    return Container(width: double.infinity, 
+                    height: 100,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 8, bottom: 8),
+                      child: Card(
+                        color: HexColor('212230'),
+                        elevation: 10,
+                        
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                            padding: EdgeInsets.only(left: 10),
+                            child: ex.type=='crypto--'?
+                            Icon(Icons.trending_down, color: Colors.red,) : ex.type=='crypto++'? Icon(Icons.trending_up, color: Colors.green,) : Icon(Icons.money_rounded, color: Colors.lightBlue,),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15.0),
+                              child: Text(ex.expense_title, style: TextStyle(color: Colors.white),),
+                            ),
+                            Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Icon(Icons.attach_money_rounded, color: Colors.white,),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 10.0),
+                              child: Text(ex.amount.toString(), style: TextStyle(color: Colors.white),),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    );
                   }
                   ).toList(),
               ),
