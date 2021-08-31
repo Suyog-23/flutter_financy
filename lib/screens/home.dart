@@ -2,6 +2,7 @@ import 'package:financy/general/hex.dart';
 import 'package:flutter/material.dart';
 import '../sections/brand.dart';
 import '../general/expense.dart';
+import '../sections/card.dart';
 
 class Home extends StatefulWidget{
   HomeState createState()=> HomeState();
@@ -14,11 +15,10 @@ class HomeState extends State<Home>{
   }
 
   final List<Expense> expense = [
-    Expense(id: 0, expense_title: 'Dominoz Pizza', type: 'spent', amount: 540, your_emotion: 'neutral', date: DateTime.now()),
-    Expense(id: 1, expense_title: 'Apple Stock', type: 'added', amount: 73.2, your_emotion: 'happy', date: DateTime.now()),
     Expense(id: 2, expense_title: 'Doge', type: 'crypto--', amount: 3200, your_emotion: 'sad', date: DateTime.now()),
     Expense(id: 3, expense_title: 'Lays', type: 'spent', amount: 20, your_emotion: 'sad', date: DateTime.now()),
     Expense(id: 4, expense_title: 'Ethereum', type: 'crypto++', amount: 4000, your_emotion: 'happy', date: DateTime.now()),
+    Expense(id: 2, expense_title: 'Doge', type: 'crypto--', amount: 3200, your_emotion: 'sad', date: DateTime.now()),
   ];
 
   @override 
@@ -39,43 +39,86 @@ class HomeState extends State<Home>{
               Column(
                 children: expense.map(
                   (ex) {
-                    return Container(width: double.infinity, 
-                    height: 100,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 8, bottom: 8),
-                      child: Card(
-                        color: HexColor('212230'),
-                        elevation: 10,
-                        
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Padding(
-                            padding: EdgeInsets.only(left: 10),
-                            child: ex.type=='crypto--'?
-                            Icon(Icons.trending_down, color: Colors.red,) : ex.type=='crypto++'? Icon(Icons.trending_up, color: Colors.green,) : Icon(Icons.money_rounded, color: Colors.lightBlue,),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 15.0),
-                              child: Text(ex.expense_title, style: TextStyle(color: Colors.white),),
-                            ),
-                            Spacer(),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Icon(Icons.attach_money_rounded, color: Colors.white,),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 10.0),
-                              child: Text(ex.amount.toString(), style: TextStyle(color: Colors.white),),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    );
+                    return CardeExp(title: ex.expense_title, amount: ex.amount,icon: ex.type=='crypto--' ? Icon(Icons.trending_down, color: Colors.red,) : ex.type=='crypto++' ? Icon(Icons.trending_up, color: Colors.green) : Icon(Icons.money, color: Colors.lightBlueAccent,),);
                   }
                   ).toList(),
+              ),
+
+              SizedBox(height: 15,),
+
+              Card(
+                color: HexColor('212230'),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 15.0, left: 20, right: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+              
+                    children: [
+                      Text('Add a new finance :)', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),),
+                      TextField(
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          hintText: 'Title of entry',
+                          hintStyle: TextStyle(color: Colors.grey),
+                          labelStyle: TextStyle(color: Colors.white),
+                          enabledBorder: UnderlineInputBorder(      
+                          borderSide: BorderSide(color: Colors.white),   
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.cyan),
+                     ),    
+                   ),
+                ),
+
+                    SizedBox(height: 15,),
+
+                      TextField(
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          hintText: 'Title of entry',
+                          hintStyle: TextStyle(color: Colors.grey),
+                          enabledBorder: UnderlineInputBorder(      
+                          borderSide: BorderSide(color: Colors.white),   
+                          ),  
+                          ),
+                      ),
+
+                      SizedBox(height: 15,),
+                      
+                      TextField(
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          hintText: 'Title of entry',
+                          hintStyle: TextStyle(color: Colors.grey),
+                          enabledBorder: UnderlineInputBorder(      
+                          borderSide: BorderSide(color: Colors.white),   
+                          ),  
+                          ),
+                      ),
+
+                      SizedBox(height: 15,),
+
+                      TextField(
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                         hintText: 'Title of entry',
+                          hintStyle: TextStyle(color: Colors.grey),
+                          enabledBorder: UnderlineInputBorder(      
+                          borderSide: BorderSide(color: Colors.white),   
+                          ),  
+                          ),
+                      ),
+
+                      SizedBox(height: 15,),
+
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: ElevatedButton(onPressed: (){}, child: Text('Add')),
+                      )
+
+                    ],
+                  ),
+                ),
               ),
 
             ],
