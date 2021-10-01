@@ -5,7 +5,7 @@ class Brand extends StatelessWidget{
   
   final String brand_name;
 
-  Brand({this.brand_name='Financy'});
+  Brand({this.brand_name='I LOVE DHINCHAK PUJA'});
 
   @override 
   Widget build(BuildContext context){
