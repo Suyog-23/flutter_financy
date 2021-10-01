@@ -1,10 +1,9 @@
 import 'package:financy/general/hex.dart';
 import 'package:flutter/material.dart';
+
 import '../sections/brand.dart';
-import '../general/expense.dart';
-import '../sections/card.dart';
-import '../sections/transactions.dart';
 import '../sections/input.dart';
+import '../sections/transactions.dart';
 
 class Home extends StatefulWidget{
 
