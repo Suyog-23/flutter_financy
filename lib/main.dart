@@ -1,5 +1,6 @@
+import 'package:financy/router/route_generator.dart';
+import 'package:financy/router/route_list.dart';
 import 'package:flutter/material.dart';
-import '../screens/home.dart';
 
 void main(){
   runApp(MyApp());
@@ -12,6 +13,10 @@ class MyApp extends StatefulWidget{
 class MyAppState extends State<MyApp>{
   @override 
   Widget build(BuildContext context){
-    return Home();
+    return MaterialApp(
+      title: "Financy",
+      initialRoute: routeHome,
+      onGenerateRoute: RouteGenerator.generate,
+    );
   }
 }
